@@ -30,6 +30,8 @@ func SetupRoutes(router *gin.Engine) {
 		api.GET("/queues/today", handlers.GetTodayQueues)
 
 		api.GET("/queues/history", handlers.GetHistory)
+		
+		api.GET("/queues/:id", handlers.GetQueueByID)
 
 		api.POST("/queues", handlers.CreateQueue)
 

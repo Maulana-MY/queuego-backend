@@ -87,6 +87,36 @@ func GetHistory(c *gin.Context) {
 }
 
 // ============================================================
+// GET ANTREAN BY ID
+// ============================================================
+
+func GetQueueByID(c *gin.Context) {
+	id, err := strconv.Atoi(c.Param("id"))
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"success": false,
+			"message": "ID antrean tidak valid",
+		})
+		return
+	}
+
+	var queue models.Queue
+	result := config.DB.First(&queue, id)
+	if result.Error != nil {
+		c.JSON(http.StatusNotFound, gin.H{
+			"success": false,
+			"message": "Antrean tidak ditemukan",
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"success": true,
+		"data":    queue,
+	})
+}
+
+// ============================================================
 // AMBIL ANTREAN
 // ============================================================
 
