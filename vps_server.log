@@ -1,0 +1,30 @@
+Database QueueGo berhasil terhubung!
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /                         --> main.main.func2 (4 handlers)
+[GIN-debug] POST   /api/register             --> queuego-backend/handlers.Register (4 handlers)
+[GIN-debug] POST   /api/login                --> queuego-backend/handlers.Login (4 handlers)
+[GIN-debug] GET    /api/counters             --> queuego-backend/handlers.GetCounters (4 handlers)
+[GIN-debug] GET    /api/queues/today         --> queuego-backend/handlers.GetTodayQueues (4 handlers)
+[GIN-debug] GET    /api/queues/history       --> queuego-backend/handlers.GetHistory (4 handlers)
+[GIN-debug] POST   /api/queues               --> queuego-backend/handlers.CreateQueue (4 handlers)
+[GIN-debug] POST   /api/queues/:id/call      --> queuego-backend/handlers.CallNext (4 handlers)
+[GIN-debug] POST   /api/queues/:id/recall    --> queuego-backend/handlers.RecallQueue (4 handlers)
+[GIN-debug] POST   /api/queues/:id/serve     --> queuego-backend/handlers.StartServing (4 handlers)
+[GIN-debug] POST   /api/queues/:id/complete  --> queuego-backend/handlers.CompleteQueue (4 handlers)
+[GIN-debug] POST   /api/queues/:id/skip      --> queuego-backend/handlers.SkipQueue (4 handlers)
+========================================
+      QUEUEGO REST API
+========================================
+Server berjalan di:
+http://localhost:8095
+========================================
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://github.com/gin-gonic/gin/blob/master/docs/doc.md#dont-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8095
+[GIN-debug] [ERROR] listen tcp :8095: bind: address already in use
+2026/09/14 11:21:02 Gagal menjalankan server:listen tcp :8095: bind: address already in use
