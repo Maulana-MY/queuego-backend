@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 
 	"github.com/gin-gonic/gin"
 
@@ -59,18 +60,18 @@ func main() {
 
 	routes.SetupRoutes(router)
 
-	// ========================================
-	// SERVER
-	// ========================================
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8095"
+	}
 
 	fmt.Println("========================================")
 	fmt.Println("      QUEUEGO REST API")
 	fmt.Println("========================================")
-	fmt.Println("Server berjalan di:")
-	fmt.Println("http://localhost:8095")
+	fmt.Println("Server berjalan di port:", port)
 	fmt.Println("========================================")
 
-	if err := router.Run(":8095"); err != nil {
+	if err := router.Run(":" + port); err != nil {
 		log.Fatal("Gagal menjalankan server:", err)
 	}
 }
